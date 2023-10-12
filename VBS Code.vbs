@@ -14,12 +14,11 @@ Sub market()
     
     Length = Cells(Rows.Count, 1).End(xlUp).row
     row = 2
-    start_date = "20200102"
     
     
     
         For i = 2 To Length
-            If Cells(i, 2).Value = start_date And Cells(i, 1).Value = Cells(i + 1, 1).Value Then
+            If Int(Cells(i, 2).Value) < Int(Cells(i + 1, 2).Value) And Cells(i, 1).Value <> Cells(i - 1, 1).Value Then
                 start_value = Cells(i, 3).Value
                 volume_value = volume_value + Cells(i, 7).Value
             ElseIf Cells(i, 1).Value <> Cells(i + 1, 1).Value Then
